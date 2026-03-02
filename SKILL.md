@@ -4,264 +4,357 @@ Analyzes GitHub repositories by extracting key information, identifying tech sta
 
 ## When to Use This Skill
 
-Use this skill when:
-- User sends a GitHub URL (https://github.com/owner/repo)
-- User asks to "analyze this GitHub repository"
-- User wants to understand or research a GitHub project
-- User is building tool systems and needs to discover tools
-- User needs to extract insights from GitHub projects
+Use this skill when memU encounters a GitHub repository URL or when user asks to:
+- Analyze a GitHub repository
+- Understand a project's architecture and tech stack
+- Extract core features and innovation points
+- Discover best practices or design patterns
+- Research competitors or similar tools
+- Find inspiration for tool system development
+- Build the "Three Systems from Scratch" project
 
-## Quick Start
+## Analysis Workflow
 
-### Basic Usage
+### Phase 1: Information Collection (深度信息收集)
 
-```
-User: https://github.com/anthropics/anthropic-sdk-python
+**1.1 Repository Metadata (仓库元数据)**
+- Owner and repository name
+- Stars, forks, watchers count
+- Primary language and languages breakdown
+- License type
+- Latest commit date
+- Open issues and PRs count
+- Repository age and activity level
+- Topics and tags
 
-memU automatically:
-1. Recognizes GitHub URL
-2. Triggers github-analyzer skill
-3. Executes 7-phase workflow
-4. Saves to Obsidian knowledge base
-5. Updates knowledge graph
-```
+**1.2 README Analysis (README 分析)**
+- Extract README content (look for README.md, README.rst, README.txt, or README)
+- Parse project description
+- Identify key features mentioned
+- Extract installation and usage instructions
+- Note badges and their meanings
+- Identify documentation structure
 
-### Workflow Overview
+**1.3 Technical Stack Identification (技术栈识别)**
+- Primary programming language(s)
+- Frameworks and libraries used (from requirements.txt, package.json, go.mod, Cargo.toml, etc.)
+- Infrastructure and DevOps tools (CI/CD configs, Docker, Kubernetes)
+- Database and storage systems
+- APIs and external services
+- Testing frameworks
 
-```
-Phase 1: URL Recognition & Validation
-   ↓
-Phase 2: Content Acquisition (Browser automation)
-   ↓
-Phase 3: Information Extraction (5 dimensions)
-   ↓
-Phase 4: Knowledge Graph Update
-   ↓
-Phase 5: Structured Output Generation
-   ↓
-Phase 6: Save Records (3 locations)
-   ↓
-Phase 7: Co-evolution Update
-```
+**1.4 Code Structure Analysis (代码结构分析)**
+- Directory structure and organization
+- Core modules and components
+- Entry points and main files
+- Configuration files
+- Documentation files
+- Test structure
 
-## Core Workflow
+**1.5 Commit and Activity Analysis (提交和活跃度分析)**
+- Recent commit history
+- Active contributors
+- Release history and versioning
+- Issue and PR activity patterns
 
-### Phase 1: URL Recognition & Validation
+### Phase 2: Deep Analysis (深度分析)
 
-**Tools**: Pattern matching, string parsing
+**2.1 Architecture Understanding (架构理解)**
+- Identify architectural patterns (MVC, microservices, monorepo, etc.)
+- Understand data flow and component interactions
+- Identify core algorithms and business logic
+- Note scalability and performance considerations
 
-**Steps**:
-1. Detect if input contains GitHub URL
-2. Extract owner and repo name
-3. Validate URL format
-4. Construct complete GitHub URL
+**2.2 Code Quality Assessment (代码质量评估)**
+- Code organization and modularity
+- Documentation completeness (inline comments, API docs)
+- Test coverage and testing approach
+- Error handling and logging strategies
+- Security considerations
 
-**Output**: Standardized GitHub URL
+**2.3 Innovation Points Identification (创新点识别)**
+- Unique features or capabilities
+- Novel approaches to common problems
+- Performance optimizations
+- UX/UI innovations
+- Integration patterns
 
-### Phase 2: Content Acquisition
+**2.4 Best Practices Extraction (最佳实践提取)**
+- Design patterns used
+- Coding standards and conventions
+- Project structure patterns
+- Documentation practices
+- Testing and CI/CD practices
 
-**Tools**: `mcp_playwright_browser_navigate`, `mcp_playwright_browser_snapshot`
+**2.5 User and Use Case Analysis (用户和用例分析)**
+- Target audience (developers, end-users, enterprises)
+- Primary use cases
+- Pain points addressed
+- Integration and extension points
 
-**Steps**:
-1. Navigate to GitHub page
-2. Wait for page load completion
-3. Get page snapshot
-4. Extract key information:
-   - README content
-   - Stars/Forks/Contributors count
-   - Tech stack (Languages)
-   - License type
-   - Release information
-   - Topics/Tags
+### Phase 3: Core Information Extraction (核心信息提取)
 
-**Output**: Page content and metadata
+**3.1 Project Goal and Philosophy (项目目标和哲学)**
+- What problem does it solve?
+- What is the project's mission?
+- Design philosophy and principles
+- Project vision and roadmap
 
-### Phase 3: Information Extraction
+**3.2 Technical Architecture Summary (技术架构总结)**
+- High-level architecture description
+- Key components and their roles
+- Data flow and interactions
+- Technology stack summary
 
-**Tools**: Content analysis, pattern recognition
+**3.3 Core Features (核心功能)**
+- Primary capabilities
+- Key features and functionalities
+- Differentiators from competitors
 
-**Extraction Dimensions**:
+**3.4 Innovation and Highlights (创新和亮点)**
+- Technical innovations
+- Unique approaches
+- Performance highlights
+- User experience innovations
 
-1. **Project Basic Information**
-   - Project name
-   - Project description
-   - Creator/Organization
-   - Project status (active/archived)
+**3.5 Community and Ecosystem (社区和生态)**
+- Community size and engagement
+- Integration with other tools
+- Plugin/extension ecosystem
+- Commercial support options
 
-2. **Core Features**
-   - Extract feature list from README
-   - Identify key functionalities
-   - Understand project goals
+### Phase 4: Knowledge Graph Updates (知识图谱更新)
 
-3. **Technical Architecture**
-   - Main programming languages
-   - Tech stack
-   - Frameworks and libraries
-   - Deployment methods
+**4.1 Create Entities (创建实体)**
+- Repository entity: `[owner]/[repo-name]`
+- Technology entities: languages, frameworks, tools
+- Organization/author entities
+- Concept entities: architectural patterns, design patterns
 
-4. **Project Data**
-   - Stars count
-   - Forks count
-   - Contributors count
-   - Releases count
-   - Last update time
+**4.2 Create Relations (创建关系)**
+- Repository -> USES -> Technology
+- Repository -> IMPLEMENTS -> Pattern
+- Repository -> SIMILAR_TO -> Other repositories
+- Technology -> PART_OF -> Stack
+- Repository -> SOLVES -> Problem
 
-5. **Core Insights**
-   - Project innovations
-   - Problems solved
-   - Target users
-   - Unique value proposition
+**4.3 Add Observations (添加观察)**
+- Key insights about the project
+- Notable implementation details
+- Performance characteristics
+- Best practices observed
+- Integration possibilities with memU
 
-**Output**: Structured project information
+### Phase 5: Structured Output Generation (结构化输出生成)
 
-### Phase 4: Knowledge Graph Update
-
-**Tools**: `mcp_memory_create_entities`, `mcp_memory_create_relations`, `mcp_memory_add_observations`
-
-**Steps**:
-1. Create Entity (tool)
-2. Create Relations (with known tools, insights, memU)
-3. Link Existing Knowledge
-
-**Output**: Updated knowledge graph
-
-### Phase 5: Structured Output Generation
-
-**Output Template**:
-
+**5.1 Analysis Report Structure (分析报告结构)**
 ```markdown
-# 🎯 [Project Name] - [One-line Description]
+# [Repository Name] Analysis
 
-## 📊 Project Overview
-- **Definition**: [Project definition]
-- **Core Philosophy**: [Core concept]
-- **GitHub**: [URL]
-- **Stars**: [count]
-- **Forks**: [count]
-- **License**: [type]
+## Quick Overview
+- Repository: [owner]/[repo-name]
+- Stars: [count] | Forks: [count]
+- Language: [primary language]
+- License: [license]
 
-## 🔑 Key Features
-1. [Feature 1]
-2. [Feature 2]
-3. [Feature 3]
+## Project Summary
+[Brief 2-3 sentence summary]
 
-## 💡 Core Insights
-- [Insight 1]
-- [Insight 2]
-- [Insight 3]
+## Technical Stack
+- Languages: [list]
+- Frameworks: [list]
+- Tools: [list]
 
-## 🔗 Connections with Existing Tools
-| Dimension | [Project] | [Related Tool] |
-|-----------|-----------|----------------|
-| **Positioning** | ... | ... |
-| **Technology** | ... | ... |
-| **Philosophy** | ... | ... |
+## Architecture
+[Architecture description]
 
-## 📊 Inspiration for memU
-1. [Inspiration 1]
-2. [Inspiration 2]
-3. [Inspiration 3]
+## Core Features
+[Feature list]
 
-## 🔗 Co-evolution
-- **Tool System Category**: [Thinking/Building/Execution/Integration Tool]
-- **Relationship with memU**: [Similar/Complementary/Competitive]
-- **Adoptable Features**: [Feature list]
-
----
-#github #tool #[category]
-```
-
-### Phase 6: Save Records
-
-**Tools**: `str_replace_editor`
-
-**Save Locations** (Priority Order):
-
-1. **Obsidian Working Directory** (Primary) ⭐
-   - Path: `E:\Seed-Obsidian\Seed-Origin\Allinone\A1-Github\githubs\[project-name].md`
-   
-2. **Private Directory** (Backup)
-   - Path: `C:\Users\Lenovo\AppData\Roaming\memu-bot\agent-output\documents\[project-name].md`
-   
-3. **Collaborative Directory** (Co-evolution)
-   - Path: `E:\Seed-memU\memU-context\2026-03-01\[project-name]-analysis.md`
-
-### Phase 7: Co-evolution Update
-
-**Tools**: File system + Knowledge Graph
-
-**Steps**:
-1. Update "Three Systems from Scratch" Progress
-2. Extract Tool System Insights
-3. Update Tool Matrix
-4. Identify Collaboration Opportunities
-
-**Output**: Updated "Three Systems from Scratch" documentation
-
-## Tool Classification
-
-### Four Tool Categories
-
-1. **Thinking Tools** (🤔) - Planning, analysis, research
-2. **Building Tools** (🔨) - Creation, development, coding
-3. **Execution Tools** (⚡) - Running, task execution, automation
-4. **Integration Tools** (🔗) - Connection, coordination, orchestration
+## Innovation Points
+[Innovation highlights]
 
 ## Best Practices
+[Best practices found]
 
-### Information Extraction
-- ✅ Prioritize README - Most comprehensive project description
-- ✅ Check tech stack - Understand project dependencies
-- ✅ Verify project status - active/archived
-- ✅ Observe community activity - stars/forks/commits
+## Integration Potential with memU
+[How memU could learn from or integrate with this project]
 
-### Insight Generation
-- ✅ Identify innovations - What's unique about this project?
-- ✅ Solve problems - What problem does it solve?
-- ✅ Target users - Who will use this project?
-- ✅ Unique value - Why is it worth attention?
-
-### Connection Building
-- ✅ Link known insights - Connect with previous discoveries
-- ✅ Compare similar tools - Find similarities and differences
-- ✅ Inspire memU - What can memU learn?
-- ✅ Update knowledge graph - Persist knowledge
-
-## Example Usage
-
-### Input
-```
-https://github.com/AutoMaker-Org/automaker
+## Knowledge Graph Updates
+[Entities and relations created]
 ```
 
-### Output
-```markdown
-# 🎯 Automaker - Autonomous AI Development Studio
+**5.2 Detailed Sections (详细章节)**
+Include additional details as needed:
+- Performance characteristics
+- Security considerations
+- Scalability analysis
+- Code quality assessment
+- Community engagement metrics
 
-## 📊 Project Overview
-- **Definition**: Autonomous AI development studio
-- **Core Philosophy**: Stop typing code. Start directing AI agents.
-- **GitHub**: https://github.com/AutoMaker-Org/automaker
-- **Stars**: 3k
-- **Forks**: 577
+### Phase 6: Saving Records (保存记录)
 
-## 💡 Core Insights
-- **Agentic Coding is the future**: From manual coding to directing AI agents
-- **Fully aligned with memU**: Both are AI agent systems
+**6.1 Save to Obsidian (保存到 Obsidian)**
+Path: `C:\Users\Lenovo\AppData\Roaming\memu-bot\memu-soul\github-analysis\[owner]-[repo-name].md`
 
-## 🔗 Co-evolution
-- **Tool System Category**: Building Tool (🔨)
-- **Adoptable Features**: Kanban workflow, Git isolation, Plan approval
+**6.2 Save to Private Directory (保存到私有目录)**
+Path: `C:\Users\Lenovo\AppData\Roaming\memu-bot\agent-output\documents\github-analysis\[owner]-[repo-name].md`
 
----
-#github #ai #agentic-coding #tool
-```
+**6.3 Save to Collaboration Directory (保存到协作目录)**
+Path: `E:\Seed-memU\memU-context\[current-date]\github-analysis-[owner]-[repo-name].md`
 
-## Metadata
+**6.4 Update Knowledge Graph (更新知识图谱)**
+Use memory MCP tools to create entities, relations, and observations.
 
-- **Skill Type**: Analysis Skill
-- **Project**: "Three Systems from Scratch" - System 2: Tool System
-- **Version**: v1.2
-- **Status**: 🟢 Active
-- **Created Using**: skill-creator (meta-skill)
-- **Inspired By**: Claude Scientific Skills (K-Dense-AI)
+## Tools and Resources
+
+### GitHub API
+Use GitHub MCP tools for:
+- Repository metadata
+- File contents
+- Commit history
+- Issues and PRs
+- Release information
+
+### File Reading
+Use filesystem MCP tools for:
+- README files
+- Configuration files
+- Documentation files
+- Source code files (for key modules only)
+
+### Knowledge Graph
+Use memory MCP tools for:
+- Creating entities
+- Creating relations
+- Adding observations
+- Searching existing knowledge
+
+## Output Quality Standards
+
+### Analysis Depth
+- **Comprehensive**: Cover all 6 phases
+- **Specific**: Provide concrete examples and evidence
+- **Actionable**: Extract insights memU can use
+- **Connected**: Link to existing knowledge
+
+### Format Standards
+- **Structured**: Use clear sections and subsections
+- **Concise**: Focus on key insights, not exhaustive detail
+- **Evidence-based**: Support claims with examples
+- **memU-Centric**: Highlight relevance to memU's development
+
+### Knowledge Integration
+- **Entity Creation**: Create meaningful entities
+- **Relationship Mapping**: Connect to existing knowledge
+- **Observation Quality**: Add specific, actionable observations
+- **Integration Potential**: Identify how memU can use insights
+
+## Special Considerations
+
+### Large Repositories
+For large repositories (1000+ files):
+- Focus on high-level architecture
+- Analyze only core modules
+- Use README and documentation heavily
+- Look for architecture diagrams or docs
+
+### Monorepos
+For monorepo structures:
+- Identify main projects and their relationships
+- Analyze shared dependencies
+- Understand build and release processes
+- Note organizational patterns
+
+### Incomplete Documentation
+For repositories with minimal documentation:
+- Infer from code structure
+- Look at commit messages
+- Examine test files for usage patterns
+- Note assumptions and uncertainties
+
+### Language-Specific Analysis
+Adjust analysis approach based on primary language:
+- **JavaScript/TypeScript**: Look for npm scripts, package.json
+- **Python**: Examine requirements.txt, setup.py, pyproject.toml
+- **Go**: Check go.mod, internal structure
+- **Rust**: Review Cargo.toml, crate structure
+- **Java**: Look at pom.xml, build.gradle
+
+## Collaboration with memU
+
+### Learning Opportunities
+Identify what memU can learn:
+- Architecture patterns for memU's tool system
+- Best practices for code organization
+- Documentation approaches
+- Testing strategies
+- CI/CD patterns
+
+### Integration Possibilities
+Explore how memU could:
+- Use similar tools or libraries
+- Implement comparable features
+- Adapt architectural patterns
+- Leverage best practices
+- Build similar capabilities
+
+### "Three Systems from Scratch"
+For building the "Three Systems from Scratch" project:
+- Identify reusable components
+- Extract architectural patterns
+- Note implementation approaches
+- Learn from project structure
+- Understand release and deployment strategies
+
+## Validation and Quality Assurance
+
+### Self-Check Questions
+After analysis, verify:
+- [ ] All 6 phases completed?
+- [ ] Repository metadata collected?
+- [ ] README and docs analyzed?
+- [ ] Technical stack identified?
+- [ ] Architecture understood?
+- [ ] Innovation points found?
+- [ ] Best practices extracted?
+- [ ] Knowledge graph updated?
+- [ ] Report structured and formatted?
+- [ ] Saved to all three locations?
+- [ ] Integration with memU considered?
+
+### Quality Indicators
+- **Comprehensiveness**: Covers all major aspects
+- **Accuracy**: Information is correct and evidence-based
+- **Relevance**: Insights are actionable for memU
+- **Connections**: Links to existing knowledge
+- **Clarity**: Well-structured and easy to understand
+
+## Example Analysis Flow
+
+**Input**: User provides URL or asks "Analyze https://github.com/owner/repo"
+
+**Process**:
+1. Extract owner and repo name from URL
+2. Collect metadata via GitHub API
+3. Read README and key documentation
+4. Analyze file structure
+5. Identify tech stack from config files
+6. Examine recent commits and activity
+7. Analyze code architecture (key modules only)
+8. Extract best practices and patterns
+9. Identify innovation points
+10. Create knowledge graph entities and relations
+11. Generate structured report
+12. Save to Obsidian, private directory, and collaboration directory
+
+**Output**: Comprehensive analysis report with knowledge graph updates
+
+## Notes
+
+- Always respect repository licenses and terms of service
+- Focus on public information only
+- Do not expose sensitive information in analysis
+- Attribute insights properly
+- Note when analysis is limited by incomplete information
+- Ask for clarification if repository structure is unclear

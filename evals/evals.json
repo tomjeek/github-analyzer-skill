@@ -1,0 +1,69 @@
+{
+  "evals": [
+    {
+      "name": "Basic Repository Analysis",
+      "description": "Test basic repository analysis with a simple project",
+      "input": "Analyze https://github.com/octocat/Hello-World",
+      "expected_output": "Should extract repository metadata, identify the tech stack, and generate a structured analysis report",
+      "assertions": [
+        "Report includes repository name and owner",
+        "Report identifies primary language",
+        "Report includes star and fork counts",
+        "Knowledge graph entities are created"
+      ]
+    },
+    {
+      "name": "Tech Stack Identification",
+      "description": "Test technical stack identification from package files",
+      "input": "Analyze the tech stack of this repository: https://github.com/vercel/next.js",
+      "expected_output": "Should identify JavaScript/TypeScript, React, Node.js, and related dependencies",
+      "assertions": [
+        "Identifies JavaScript/TypeScript as primary language",
+        "Recognizes React framework",
+        "Lists Node.js runtime",
+        "Extracts key dependencies from package.json"
+      ]
+    },
+    {
+      "name": "Best Practices Extraction",
+      "description": "Test extraction of best practices from well-maintained projects",
+      "input": "Extract best practices from https://github.com/golang/go",
+      "expected_output": "Should identify code organization, testing strategies, documentation practices",
+      "assertions": [
+        "Identifies code structure patterns",
+        "Recognizes testing approach",
+        "Notes documentation practices",
+        "Extracts CI/CD patterns if present"
+      ]
+    },
+    {
+      "name": "Knowledge Graph Integration",
+      "description": "Test that analysis updates the knowledge graph",
+      "input": "Analyze https://github.com/microsoft/vscode and update the knowledge graph",
+      "expected_output": "Should create entities for the repository, technologies, and create relationships",
+      "assertions": [
+        "Creates repository entity",
+        "Creates technology entities",
+        "Creates USES relationships",
+        "Adds observations to entities"
+      ]
+    },
+    {
+      "name": "memU Integration Analysis",
+      "description": "Test identification of memU integration opportunities",
+      "input": "Analyze https://github.com/microsoft/typescript and identify how memU could learn from it",
+      "expected_output": "Should identify architectural patterns, best practices, and integration opportunities",
+      "assertions": [
+        "Identifies relevant architectural patterns",
+        "Extracts applicable best practices",
+        "Suggests integration possibilities with memU",
+        "Notes performance considerations"
+      ]
+    }
+  ],
+  "metadata": {
+    "skill_version": "1.0.0",
+    "last_updated": "2026-03-02",
+    "test_framework": "manual"
+  }
+}

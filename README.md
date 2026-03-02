@@ -1,135 +1,53 @@
-# 🎯 GitHub Analyzer Skill
+# GitHub Analyzer Skill
 
-**An Agent Skill for analyzing GitHub repositories and extracting insights**
+Professional GitHub repository analysis skill for memU AI assistant.
 
----
+## Overview
 
-## 📋 Overview
+This skill provides comprehensive GitHub repository analysis capabilities, including:
+- Repository metadata extraction
+- Technical stack identification
+- Architecture analysis
+- Best practices extraction
+- Knowledge graph integration
+- Structured report generation
 
-This skill enables AI agents to perform comprehensive analysis of GitHub repositories through a structured 7-phase workflow. It integrates seamlessly with Obsidian, Knowledge Graph systems, and supports tool co-evolution.
+## Installation
 
----
+1. Copy this skill folder to your memU skills directory
+2. Import the skill through memU's UI
+3. The skill will be automatically triggered when:
+   - You provide a GitHub repository URL
+   - You ask to analyze a GitHub repository
+   - You need to understand a project's architecture
 
-## ✨ Features
+## Usage Examples
 
-### 🔍 **7-Phase Analysis Workflow**
-1. **Contextual Foundation** - Repository overview and tech stack identification
-2. **Repository Evolution** - Commit history and development patterns
-3. **Developer Collaboration** - Contributor analysis and team dynamics
-4. **Component Architecture** - Code structure and dependency mapping
-5. **Insight Synthesis** - Pattern recognition and key findings
-6. **Interactive Exploration** - User-driven deep-dive sessions
-7. **Report Generation** - Comprehensive analysis reports
+- "Analyze https://github.com/owner/repo"
+- "What's the tech stack of this repository?"
+- "Extract best practices from this project"
+- "How can memU learn from this repository?"
 
-### 🔗 **Integrations**
-- **Obsidian** - Markdown report generation with PKM integration
-- **Knowledge Graph** - Automated entity and relationship extraction
-- **Tool Systems** - Classification and recommendation for new tools
-- **Co-evolution Support** - Mutual growth between users and tools
+## Features
 
-### 📊 **Analysis Capabilities**
-- Repository health assessment
-- Activity pattern analysis
-- Contributor influence mapping
-- Technology stack detection
-- Dependency visualization
-- Code quality metrics
+- **6-Phase Analysis Workflow**: Comprehensive repository examination
+- **Knowledge Graph Integration**: Automatic entity and relation creation
+- **Multi-Location Saving**: Saves to Obsidian, private directory, and collaboration directory
+- **memU-Centric**: Identifies integration opportunities with memU
 
----
+## Output
 
-## 🚀 Usage
+Analysis reports are saved to:
+- Obsidian: `memu-soul/github-analysis/[owner]-[repo-name].md`
+- Private: `agent-output/documents/github-analysis/[owner]-[repo-name].md`
+- Collaboration: `memU-context/[date]/github-analysis-[owner]-[repo-name].md`
 
-### Basic Analysis
+## Requirements
 
-```bash
-# Analyze a GitHub repository
-/user: Analyze https://github.com/username/repository
-```
+- GitHub MCP server configured
+- Memory MCP server configured
+- Filesystem access enabled
 
-### Advanced Features
+## License
 
-```bash
-# Generate Obsidian report
-/user: Analyze repository and create Obsidian report
-
-# Update Knowledge Graph
-/user: Analyze and extract entities to knowledge graph
-
-# Tool co-evolution
-/user: Analyze repository for tool recommendations
-```
-
----
-
-## 📁 Output Formats
-
-### Obsidian Reports
-- **Location**: `GitHub Analysis/{owner}/{repo}/`
-- **Format**: Markdown with YAML frontmatter
-- **Includes**: Metadata, embeddings, bi-directional links
-
-### Knowledge Graph
-- **Entities**: Repository, contributors, technologies, patterns
-- **Relations**: Dependencies, collaborations, influences
-- **Observations**: Activity metrics, insights, recommendations
-
-### JSON Data
-- **Raw Analysis**: Structured data for further processing
-- **Metrics**: Quantitative repository statistics
-- **Patterns**: Detected patterns and trends
-
----
-
-## 🛠️ Technical Details
-
-### Supported Platforms
-- ✅ GitHub (Public & Private)
-- 🔄 GitLab (Planned)
-- 🔄 Bitbucket (Planned)
-
-### Analysis Methods
-- Git log analysis
-- Commit pattern detection
-- Contributor network mapping
-- Technology stack inference
-- Dependency graph analysis
-
-### Data Sources
-- Repository metadata
-- Commit history
-- Issue tracking
-- Pull requests
-- Wiki documentation
-- Release notes
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
----
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-## 🌟 Acknowledgments
-
-- Built for AI agent integration
-- Designed for Knowledge Graph systems
-- Optimized for Obsidian workflows
-- Supports tool co-evolution methodologies
-
----
-
-## 📞 Contact
-
-- **GitHub**: [@tomjeek](https://github.com/tomjeek)
-- **Repository**: [github-analyzer-skill](https://github.com/tomjeek/github-analyzer-skill)
-
----
-
-**Made with ❤️ for the AI Agent Community**
+MIT

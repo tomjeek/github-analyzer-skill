@@ -1,0 +1,3 @@
+display_name: "GitHub Analyzer"
+short_description: "Analyzes GitHub repositories by extracting key information, identifying tech stacks, and discovering core insights"
+default_prompt: "Analyze this GitHub repository to extract key information, identify the tech stack, and discover insights about its architecture and best practices."
